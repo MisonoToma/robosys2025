@@ -3,8 +3,8 @@
 # SPDX-License-Indentifer: GPL-3.0-omly 
 
 ng () {
-        echo ${1}行目が違うよ
-        res=1
+    echo ${1}行目が違うよ
+    res=1
 }
 
 res=0
