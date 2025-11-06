@@ -1,4 +1,5 @@
 # robosys2025
+![test](https://github.com/MisonoToma/robosys2025/actions/workflows/test.yml/badge.svg)
 ロボットシステム学課題1
 
 - このソフトウェアパッケージは、3条項BSDライセンスの下、再頒布および使用が許可されます.
