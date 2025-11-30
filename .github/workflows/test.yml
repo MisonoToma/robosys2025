@@ -23,3 +23,8 @@ jobs:
       # 4. テストスクリプトを実行
       - name: Run tests
         run: bash -xv ./test.bash
+- name: Compile robosys1
+  run: |
+    ls -l  # ファイル一覧を確認
+    gcc robosys1.c -o robosys1
+    chmod +x robosys1
