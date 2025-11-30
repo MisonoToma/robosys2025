@@ -1,6 +1,6 @@
-#!/usr/bin/python3
-# SPDX-FileCopyrightText: 2025 Kaito Shima
-# SPDX-License-Identifier: BSD-3-Clause
+
+// SPDX-FileCopyrightText: 2025 Kaito Shima
+// SPDX-License-Identifier: BSD-3-Clause
 
 #include <stdio.h>
 
