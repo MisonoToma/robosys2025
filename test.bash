@@ -10,7 +10,7 @@ ng () {
 res=0
 
 ### EXECUTION TEST ###
-out=$(printf "1\n6\n" | ./robosys1.py)
+out=$(printf "1\n6\n" | ./homework)
 [ "$?" = 0 ] || ng "$LINENO"
 
 ### LINE COUNT TEST ###
