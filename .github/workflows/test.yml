@@ -1,32 +1,12 @@
 name: test
 on: push
-
 jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11", "3.12"]
-        gcc-version: ["9", "10", "11", "12"]
+        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11", "3.12", "3.13"]
     steps:
     - uses: actions/checkout@v3
-
-    - name: Setup Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: ${{ matrix.python-version }}
-
-    - name: Install GCC ${{ matrix.gcc-version }}
-      run: |
-        sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
-        sudo apt-get update
-        sudo apt-get install -y gcc-${{ matrix.gcc-version }} g++-${{ matrix.gcc-version }}
-        sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-${{ matrix.gcc-version }} 100
-        sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-${{ matrix.gcc-version }} 100
-        gcc --version
-
-    - name: Compile C program
-      run: gcc robosys1.c -o robosys1
-
-    - name: Run tests
+    - name: All test
       run: bash -xv ./test.bash
