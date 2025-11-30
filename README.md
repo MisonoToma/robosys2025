@@ -6,10 +6,11 @@
 
 - 1000000などの長い数字を見やすくするために数字を打ち込んだ時に日本語で単位を表す.(例:入力を10000→ 出力が1万)
 
-## コンパイルと実行方法
+## インストールとコンパイルと実行方法
 
 ```bash
 $ https://github.com/MisonoToma/robosys2025.git
+$ cd robosys2025
 $ gcc robosys1.c -o robosys1
 $ echo 10000 | ./robosys1
 ```
@@ -22,11 +23,8 @@ $ echo 10000 | ./robosys1
 ## 必要なソフトウェア
 
 - C言語
-テスト済みバージョン:
 
 ## ライセンス
 
 - このソフトウェアパッケージは、3条項BSDライセンスの下、再頒布および使用が許可されます.
-- このパッケージのコードは、下記のスライド(CC-BY-SA 4.0 by Ryuici Ueda)のものを、本人の許可を得て自身の著作としたものです.
-    - [ryuichiueda/my_slides robosys_2025](https://github.com/ryuichiueda/my_slides/tree/master/robosys_2025)
-- © 2025 Ryuichi Ueda
+- © 2025 Toma Misono
