@@ -10,39 +10,49 @@ ng () {
 res=0
 
 ### EXECUTION TEST ###
-out=$(printf "1\n6\n" | ./homework)
+# 正常終了するか？
+out=$(printf "9999\n" | ./robosys1)
 [ "$?" = 0 ] || ng "$LINENO"
 
 ### LINE COUNT TEST ###
+# 出力行数は1行か？
 lines=$(echo "$out" | wc -l)
-[ "$lines" = 2 ] || ng "$LINENO"
+[ "$lines" = 1 ] || ng "$LINENO"
 
-### CONTENT TEST ###
-# 1行目チェック
-echo "$out" | head -n 1 | grep -q "整数の1~5を入力してください:" || ng "$LINENO"
+### CONTENT TEST（10000未満）###
+out=$(printf "9999\n" | ./robosys1)
+[ "$out" = "9999" ] || ng "$LINENO"
 
-# 2行目チェック
-echo "$out" | tail -n 1 | grep -q "整数の6~10を入力してください:" || ng "$LINENO"
+### 10000以上のテスト ###
+# 10000 → 1万
+out=$(printf "10000\n" | ./robosys1)
+[ "$out" = "1万" ] || ng "$LINENO"
 
-### ARTIST VALIDATION ###
-artist=$(echo "$out" | head -n 1 | sed 's/整数の1~5を入力してください://')
+# 12345 → 1万2345
+out=$(printf "12345\n" | ./robosys1)
+[ "$out" = "1万2345" ] || ng "$LINENO"
 
-case "$artist" in
-    "Mr.Children"|"back number"|"嵐"|"あいみょん"|"サカナクション") ;;
-    *) ng "$LINENO" ;;
-esac
+# 10001 → 1万1
+out=$(printf "10001\n" | ./robosys1)
+[ "$out" = "1万1" ] || ng "$LINENO"
 
-### SONG VALIDATION ###
-song=$(echo "$out" | tail -n 1 | sed 's/整数の6~10を入力してください://')
+# 90000 → 9万
+out=$(printf "90000\n" | ./robosys1)
+[ "$out" = "9万" ] || ng "$LINENO"
 
-case "$song" in
-    "Any"|"himawari"|"UFO"|"羊、吠える"|"深海"|\
-    "fish"|"ハッピーエンド"|"瞬き"|"ブルーアンバー"|"幸せ"|\
-    "エナジーソング"|"果てない空"|"サーカス"|"シリウス"|"春風スニーカー"|\
-    "姿"|"森のくまさん"|"ジェニファー"|"ビーナスベルト"|"MIO"|\
-    "アルクアラウンド"|"ミュージック"|"陽炎"|"モス"|"多分、風") ;;
-    *) ng "$LINENO" ;;
-esac
+# 90500 → 9万500
+out=$(printf "90500\n" | ./robosys1)
+[ "$out" = "9万500" ] || ng "$LINENO"
+
+# 90009 → 9万9
+out=$(printf "90009\n" | ./robosys1)
+[ "$out" = "9万9" ] || ng "$LINENO"
+
+### VALIDATION（万表記の形式チェック）###
+# 出力が「数字 + 万 + 任意の数字」形式か？
+# 例: 1万2345, 9万500 など
+out=$(printf "12345\n" | ./robosys1)
+echo "$out" | grep -qE '^[0-9]+万[0-9]*$' || ng "$LINENO"
 
 [ "$res" = 0 ] && echo OK
 exit $res
