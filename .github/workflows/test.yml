@@ -7,6 +7,19 @@ jobs:
       matrix:
         python-version: ["3.7", "3.8", "3.9", "3.10", "3.11", "3.12", "3.13"]
     steps:
-    - uses: actions/checkout@v3
-    - name: All test
-      run: bash -xv ./test.bash
+      # 1. リポジトリをチェックアウト
+      - uses: actions/checkout@v3
+
+      # 2. gcc をインストール（Ubuntu には基本入っている場合もありますが念のため）
+      - name: Install gcc
+        run: sudo apt update && sudo apt install -y build-essential
+
+      # 3. Cプログラムをコンパイル
+      - name: Compile robosys1
+        run: |
+          gcc robosys1.c -o robosys1
+          chmod +x robosys1
+
+      # 4. テストスクリプトを実行
+      - name: Run tests
+        run: bash -xv ./test.bash
