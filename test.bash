@@ -2,6 +2,15 @@
 # SPDX-FileCopyrightText: 2025 Kaito Shima
 # SPDX-License-Identifier: BSD-3-Clause
 
+# ① スクリプト自身のディレクトリに移動
+cd "$(dirname "$0")" || exit 1
+
+# ② robosys1 が存在しなければコンパイル
+if [ ! -x ./robosys1 ]; then
+    gcc robosys1.c -o robosys1 || exit 1
+    chmod +x ./robosys1
+fi
+
 ng () {
     echo "${1}行目が違うよ"
     res=1
