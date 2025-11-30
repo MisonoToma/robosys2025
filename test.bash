@@ -1,4 +1,5 @@
 #!/bin/bash -xv
+cd "$(dirname "$0")" || exit 1
 # SPDX-FileCopyrightText: 2025 Toma Misono
 # SPDX-License-Identifier: GPL-3.0-only
 
