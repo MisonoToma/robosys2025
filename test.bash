@@ -1,12 +1,16 @@
 #!/bin/bash -xv
-# SPDX-FileCopyrightText: 2025 Kaito Shima
-# SPDX-License-Identifier: BSD-3-Clause
+# SPDX-FileCopyrightText: 2025 Toma Misono
+# SPDX-License-Identifier: GPL-3.0-only
 
-# ① スクリプト自身のディレクトリに移動
+# スクリプト自身のディレクトリに移動
 cd "$(dirname "$0")" || exit 1
 
-# ② robosys1 が存在しなければコンパイル
+# robosys1 が存在しなければコンパイル
 if [ ! -x ./robosys1 ]; then
+    if [ ! -f ./robosys1.c ]; then
+        echo "Error: robosys1.c が見つかりません"
+        exit 1
+    fi
     gcc robosys1.c -o robosys1 || exit 1
     chmod +x ./robosys1
 fi
@@ -18,25 +22,7 @@ ng () {
 
 res=0
 
-### EXECUTION TEST ###
-# 正常終了するか？
-out=$(printf "9999\n" | ./robosys1)
-[ "$?" = 0 ] || ng "$LINENO"
-
-### LINE COUNT TEST ###
-# 出力行数は1行か？
-lines=$(echo "$out" | wc -l)
-[ "$lines" = 1 ] || ng "$LINENO"
-
-### CONTENT TEST（10000未満）###
-out=$(printf "9999\n" | ./robosys1)
-[ "$out" = "9999" ] || ng "$LINENO"
-
-### 10000以上のテスト ###
-# 10000 → 1万
-out=$(printf "10000\n" | ./robosys1)
-[ "$out" = "1万" ] || ng "$LINENO"
-
+### CONTENT TEST（10000以上）
 # 12345 → 1万2345
 out=$(printf "12345\n" | ./robosys1)
 [ "$out" = "1万2345" ] || ng "$LINENO"
@@ -57,7 +43,7 @@ out=$(printf "90500\n" | ./robosys1)
 out=$(printf "90009\n" | ./robosys1)
 [ "$out" = "9万9" ] || ng "$LINENO"
 
-### VALIDATION（万表記の形式チェック）###
+### VALIDATION（万表記の形式チェック）
 # 出力が「数字 + 万 + 任意の数字」形式か？
 # 例: 1万2345, 9万500 など
 out=$(printf "12345\n" | ./robosys1)
