@@ -1,34 +1,23 @@
 name: test
-
-on:
-  push:
-
+on: push
 jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: ["3.7", "3.8", "3.9", "3.10", "3.11", "3.12", "3.13"]
-
     steps:
-      # 1. リポジトリをチェックアウト
-      - uses: actions/checkout@v3
-
-      # 2. gcc をインストール
-      - name: Install gcc
-        run: sudo apt update && sudo apt install -y build-essential
-
-      # 3. ファイル一覧確認 + Cプログラムをコンパイル
-      - name: Compile robosys1
-        run: |
-          ls -l  # ファイル一覧を確認
-          if [ ! -f robosys1.c ]; then
-            echo "Error: robosys1.c が見つかりません"
-            exit 1
-          fi
-          gcc robosys1.c -o robosys1
-          chmod +x robosys1
-
-      # 4. テストスクリプトを実行
-      - name: Run tests
-        run: bash -xv ./test.bash
+    - uses: actions/checkout@v3
+    - name: Install gcc
+      run: sudo apt update && sudo apt install -y build-essential
+    - name: Compile robosys1
+      run: |
+        ls -l
+        if [ ! -f robosys1.c ]; then
+          echo "Error: robosys1.c が見つかりません"
+          exit 1
+        fi
+        gcc robosys1.c -o robosys1
+        chmod +x robosys1
+    - name: All test
+      run: bash -xv ./test.bash
