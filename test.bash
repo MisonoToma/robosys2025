@@ -20,20 +20,29 @@ ng () {
 
 res=0
 
-out=$(printf "12345\n" | ./robosys1)
-[ "$out" = "1万2345" ] || ng "$LINENO"
+out=$(printf "63828\n" | ./robosys1)
+[ "$out" = "6万3828" ] || ng "$LINENO"
 
-out=$(printf "10001\n" | ./robosys1)
-[ "$out" = "1万1" ] || ng "$LINENO"
+out=$(printf "10008\n" | ./robosys1)
+[ "$out" = "1万8" ] || ng "$LINENO"
 
-out=$(printf "90000\n" | ./robosys1)
-[ "$out" = "9万" ] || ng "$LINENO"
+out=$(printf "10000\n" | ./robosys1)
+[ "$out" = "1万" ] || ng "$LINENO"
 
 out=$(printf "90500\n" | ./robosys1)
 [ "$out" = "9万500" ] || ng "$LINENO"
 
-out=$(printf "90009\n" | ./robosys1)
-[ "$out" = "9万9" ] || ng "$LINENO"
+out=$(printf "80060\n" | ./robosys1)
+[ "$out" = "8万60" ] || ng "$LINENO"
+
+out=$(printf "609382\n" | ./robosys1)
+[ "$out" = "60万9382\n" ] || ng "$LINENO"
+
+out=$(printf "6009382\n" | ./robosys1)
+[ "$out" = "600万9382\n" ] || ng "$LINENO"
+
+out=$(printf "60009382\n" | ./robosys1)
+[ "$out" = "6000万9382\n" ] || ng "$LINENO"
 
 out=$(printf "019278\n" | ./robosys1)
 [ "$out" = "1万9278" ] || ng "$LINENO"
