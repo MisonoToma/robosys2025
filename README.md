@@ -31,3 +31,9 @@ $ echo 10000 | ./robosys1
 - このパッケージのコードは、下記のスライド(CC-BY-SA 4.0 by Ryuichi Ueda) のものを、本人の許可を得て自身の著作としたものです.
     - [ryuichiueda/my_slides robosys_2025 ](https://github.com/ryuichiueda/my_slides/tree/master/robosys_2025)
 - © 2025 Toma Misono
+
+## 参考文献
+
+- https://ryuichiueda.github.io/slides_marp/robosys2025/lesson5.html
+- https://ryuichiueda.github.io/slides_marp/robosys2025/lesson6.html
+- https://ryuichiueda.giyhub.io/slides_marp/robosys2025/lesson7.html
