@@ -36,13 +36,13 @@ out=$(printf "80060\n" | ./robosys1)
 [ "$out" = "8万60" ] || ng "$LINENO"
 
 out=$(printf "609382\n" | ./robosys1)
-[ "$out" = "60万9382\n" ] || ng "$LINENO"
+[ "$out" = "60万9382" ] || ng "$LINENO"
 
 out=$(printf "6009382\n" | ./robosys1)
-[ "$out" = "600万9382\n" ] || ng "$LINENO"
+[ "$out" = "600万9382" ] || ng "$LINENO"
 
 out=$(printf "60009382\n" | ./robosys1)
-[ "$out" = "6000万9382\n" ] || ng "$LINENO"
+[ "$out" = "6000万9382" ] || ng "$LINENO"
 
 out=$(printf "019278\n" | ./robosys1)
 [ "$out" = "1万9278" ] || ng "$LINENO"
