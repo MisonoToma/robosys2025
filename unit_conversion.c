@@ -31,8 +31,8 @@ int main(void)
         if (e != 0 || d != 0 || c != 0)
             printf("%d", c);
         if (e != 0 || d != 0 || c != 0 || b != 0)
-            printf("%d\n", b);
-        
+            printf("%d", b);
+        printf("\n");
     }
 
     return 0;
