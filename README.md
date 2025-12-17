@@ -1,4 +1,4 @@
-# robosys2025 数字を見やすく
+# robosys2025 数字を見やすく(単位変換)
 ![test](https://github.com/MisonoToma/robosys2025/actions/workflows/test.yml/badge.svg)
 ロボットシステム学課題1
 
@@ -11,8 +11,8 @@
 ```bash
 $ https://github.com/MisonoToma/robosys2025.git
 $ cd robosys2025
-$ gcc robosys1.c -o robosys1
-$ echo 10000 | ./robosys1
+$ gcc unit_conversion.c -o unit_conversion
+$ echo 10000 | ./unit_conversion
 1万
 ### 入力が10000のとき ###
 ```
@@ -25,13 +25,13 @@ $ echo 10000 | ./robosys1
 
 ## 必要なソフトウェア
 
-- C言語
-- バージョン: 13.3.0
+- gcc
+- gccのバージョン: 13.3.0
 
 ## ライセンス
 
 - このソフトウェアパッケージは、3条項BSDライセンスの下、再頒布および使用が許可されます.
-- このパッケージのコードは、[下記のスライド(CC-BY-SA 4.0 by Ryuichi Ueda)](https://github.com/ryuichiueda/my_slides/tree/master/robosys_2025) のものを、本人の許可を得て自身の著作としたものです.
+- このパッケージのコードは、[このスライド](https://ryuichiueda.github.io/slides_marp/robosys2025/lesson5.html)21～23ページのものを、本人の許可を得て自身の著作としたものです.
 - © 2025 Toma Misono
 
 ## 参考文献

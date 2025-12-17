@@ -3,21 +3,18 @@ on: push
 jobs:
   test:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11", "3.12", "3.13"]
     steps:
     - uses: actions/checkout@v3
     - name: Install gcc
       run: sudo apt update && sudo apt install -y build-essential
-    - name: Compile robosys1
+    - name: Compile unit_conversion
       run: |
         ls -l
-        if [ ! -f robosys1.c ]; then
-          echo "Error: robosys1.c が見つかりません"
+        if [ ! -f unit_conversion.c ]; then
+          echo "Error: unit_conversion.c が見つかりません"
           exit 1
         fi
-        gcc robosys1.c -o robosys1
-        chmod +x robosys1
+        gcc unit_conversion.c -o unit_conversion
+        chmod +x unit_conversion
     - name: All test
       run: bash -xv ./test.bash
