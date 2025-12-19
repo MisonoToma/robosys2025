@@ -8,10 +8,19 @@ int main(void)
 {
     int a;
 
-    scanf("%d", &a);
+    if (scanf("%d", &a) != 1) {
+
+    return 1;
+    }
+
+    if (a < 0 || 100000000 <= a) {
+
+    return 1;
+    }
+
     if (a < 10000)
         printf("%d\n", a);
-    
+
     int quotient, b, c, d, e, f;
     if (10000 <= a && a < 100000000) {
         quotient = a / 10000;
