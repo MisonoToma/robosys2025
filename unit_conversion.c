@@ -1,22 +1,25 @@
 
-// SPDX-FileCopyrightText: 2025 Kaito Shima
+// SPDX-FileCopyrightText: 2025 Toma Misono
 // SPDX-License-Identifier: BSD-3-Clause
 
 #include <stdio.h>
 
 int main(void)
 {
+    double g;
     int a;
 
-    if (scanf("%d", &a) != 1) {
+    if (scanf("%lf", &g) != 1) {
 
     return 1;
     }
 
-    if (a < 0 || 100000000 <= a) {
+    if (g < 0 || 100000000 <= g) {
 
     return 1;
     }
+
+    a = (int)g;
 
     if (a < 10000)
         printf("%d\n", a);

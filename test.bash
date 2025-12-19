@@ -62,6 +62,9 @@ out=$(echo 9290 | ./unit_conversion)
 out=$(echo 0 | ./unit_conversion)
 [ "${out}" = 0 ] || ng "$LINENO"
 
+out=$(echo 83479.7 | ./unit_conversion)
+[ "${out}" = 8万3479 ] || ng "$LINENO"
+
 out=$(echo あ | ./unit_conversion)
 [ "$?" = 1 ]      || ng "$LINENO"
 [ "${out}" = "" ] || ng "$LINENO"
