@@ -9,7 +9,7 @@
 ## インストールとコンパイルと実行方法と出力例
 
 ```bash
-$ https://github.com/MisonoToma/robosys2025.git
+$ git clone https://github.com/MisonoToma/robosys2025.git
 $ cd robosys2025
 $ gcc unit_conversion.c -o unit_conversion
 $ echo 10000 | ./unit_conversion
@@ -38,4 +38,4 @@ $ echo 10000 | ./unit_conversion
 
 - https://ryuichiueda.github.io/slides_marp/robosys2025/lesson5.html
 - https://ryuichiueda.github.io/slides_marp/robosys2025/lesson6.html
-- https://ryuichiueda.giyhub.io/slides_marp/robosys2025/lesson7.html
+- https://ryuichiueda.github.io/slides_marp/robosys2025/lesson7.html
