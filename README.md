@@ -12,12 +12,16 @@
 $ git clone https://github.com/MisonoToma/robosys2025.git
 $ cd robosys2025
 $ gcc unit_conversion.c -o unit_conversion
+### 入力が10000のとき ###
 $ echo 10000 | ./unit_conversion
 1万
-### 入力が10000のとき ###
+### 入力が空白のとき ###
+$ echo | ./unit_conversion
+
+### 出力はない ###
 ```
 
-＊これは入力が10000のときの場合です. 小数点以下は省略されます. 入力する値は1億未満で空白、文字、負の値はなしでお願いします.
+＊入力が小数点以下のときは省略されます. 入力する値は1億未満で空白、文字、負の値はなしでお願いします.
 
 ## 使用環境
 
